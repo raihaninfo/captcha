@@ -31,7 +31,7 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 	captcha := r.PostFormValue("h-captcha-response")
 	fmt.Println(captcha)
 
-	valid := CheckGoogleCaptcha(captcha)
+	valid := CheckHCaptcha(captcha)
 	fmt.Println(valid)
 	if valid {
 		fmt.Fprintf(w, "The captcha was correct!")
@@ -40,8 +40,8 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func CheckGoogleCaptcha(response string) bool {
-	var hCaptcha string = "f53b9c2f-9ad5-47f5-869d-d3521d3ac4c8"
+func CheckHCaptcha(response string) bool {
+	var hCaptcha string = "0x055a7D2c94f486D36e2d0B3110F72BB50d4cf52B"
 	req, _ := http.NewRequest("POST", "https://hcaptcha.com/siteverify", nil)
 	q := req.URL.Query()
 	q.Add("secret", hCaptcha)
