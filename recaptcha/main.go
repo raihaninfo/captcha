@@ -39,7 +39,7 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 	if valid {
 		fmt.Fprintf(w, "The captcha was correct!")
 	} else {
-		fmt.Fprintf(w, "This captcha was NOT correct, check the public and secret keys.")
+		fmt.Fprintf(w, "This captcha was NOT correct")
 	}
 }
 
