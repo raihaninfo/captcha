@@ -2,17 +2,18 @@
 
 <head>
   <title>reCaptcha</title>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 <body>
-  <form action="" method="POST">
+  <form action="/send" method="POST">
     <input type="text" name="email" placeholder="Email" />
     <br>
-    <input type="password" name="password" placeholder="Password" />
-    <div class="captcha" data-sitekey="your_site_key"></div>
-    <br />
-    <div class="g-recaptcha" data-sitekey="PUBLIC_KEY_HERE"></div>
-    <input type="submit" value="Submit" />
+
+    <div name="jj" class="g-recaptcha" data-sitekey="6LfjJ1IeAAAAAOM9508egaxProJTpvgaQlYeznrb"></div>
+    <input type="submit">
+
+
   </form>
 
   	
