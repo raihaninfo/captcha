@@ -23,7 +23,7 @@ func main() {
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
 
-	tpl, err := template.ParseFiles("index.html")
+	tpl, err := template.ParseFiles("index.gohtml")
 	if err != nil {
 		log.Fatalln(err)
 	}
