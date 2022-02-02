@@ -10,7 +10,6 @@ import (
 )
 
 func main() {
-
 	http.HandleFunc("/", IndexHandler)
 	http.HandleFunc("/send", SendHandler)
 
@@ -18,11 +17,9 @@ func main() {
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
-
 }
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
-
 	tpl, err := template.ParseFiles("index.gohtml")
 	if err != nil {
 		log.Fatalln(err)
