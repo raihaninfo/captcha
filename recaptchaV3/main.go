@@ -15,14 +15,14 @@ func main() {
 
 	err := http.ListenAndServe(":8082", nil)
 	if err != nil {
-		log.Fatal("ListenAndServe: ", err)
+		log.Println("ListenAndServe: ", err)
 	}
 }
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	tpl, err := template.ParseFiles("index.gohtml")
 	if err != nil {
-		log.Fatalln(err)
+		log.Println(err)
 	}
 	tpl.Execute(w, nil)
 }
@@ -42,10 +42,13 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func CheckGoogleCaptcha(response string) bool {
-	var googleCaptcha string = "6LcYhFUeAAAAAPNsgv5l9reKZj8qNT-zB9nqrNzY"
-	req, _ := http.NewRequest("POST", "https://www.google.com/recaptcha/api/siteverify", nil)
+	var googleCaptchav3 string = "6LcYhFUeAAAAAPNsgv5l9reKZj8qNT-zB9nqrNzY"
+	req, err := http.NewRequest("POST", "https://www.google.com/recaptcha/api/siteverify", nil)
+	if err != nil {
+		log.Println(err)
+	}
 	q := req.URL.Query()
-	q.Add("secret", googleCaptcha)
+	q.Add("secret", googleCaptchav3)
 	q.Add("response", response)
 	req.URL.RawQuery = q.Encode()
 	client := &http.Client{}
