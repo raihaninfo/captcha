@@ -2,19 +2,21 @@
 
 <head>
   <title>reCaptcha</title>
-  <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 <body>
   <form id="demo-form" action="/send" method="POST">
     <input required type="text" name="email" placeholder="Email" />
-    <br>
-    <button class="g-recaptcha" data-sitekey="6LcYhFUeAAAAAIAiesmodgnlvO-y2e2_cGTrOzJJ" data-callback='onSubmit'
-      data-action='submit'>Submit</button>
+    <br />
+    <button class="g-recaptcha" data-sitekey="6LcYhFUeAAAAAIAiesmodgnlvO-y2e2_cGTrOzJJ" data-callback="onSubmit"
+      data-action="submit">
+      Submit
+    </button>
 
     <!-- <input type="submit" value="submit"> -->
   </form>
-  <script src='https://www.google.com/recaptcha/api.js'></script>
+
+  <script src="https://www.google.com/recaptcha/api.js"></script>
   <script src="https://www.google.com/recaptcha/api.js?render=6LcYhFUeAAAAAIAiesmodgnlvO-y2e2_cGTrOzJJ"></script>
   <script>
     function onSubmit(token) {
@@ -24,15 +26,16 @@
     function onClick(e) {
       e.preventDefault();
       grecaptcha.ready(function () {
-        grecaptcha.execute('6LcYhFUeAAAAAIAiesmodgnlvO-y2e2_cGTrOzJJ', {
-          action: 'submit'
-        }).then(function (token) {
-          // Add your logic to submit to your backend server here.
-        });
+        grecaptcha
+          .execute("6LcYhFUeAAAAAIAiesmodgnlvO-y2e2_cGTrOzJJ", {
+            action: "submit",
+          })
+          .then(function (token) {
+            // Add your logic to submit to your backend server here.
+          });
       });
     }
   </script>
-
 </body>
 
 </html>
